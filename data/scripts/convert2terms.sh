@@ -1,3 +1,4 @@
 for FILENAME in ../nodes_and_edges/*_nodes.tsv; do
-	poetry run python -m ontorunner.pre.util prepare-termlist -i ${FILENAME} -o ../terms/${FILENAME}_terms.tsv
+	BASENAME=$(basename $FILENAME)
+	poetry run python -m ontorunner.pre.util prepare-termlist -i ${FILENAME} -o ../terms/${BASENAME%_nodes.tsv}_terms.tsv
 done;
